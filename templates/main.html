@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #e0d9d2;
+            background-size: cover;
+            background-color: rgba(252, 240, 240, 0.8); /* Adjust the alpha channel for opacity */
+            color: #fff;
+            position: relative;
+        }
+
+        header {
+            background: transparent;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgb(233, 233, 233);
+            position: relative;
+        }
+
+        header h1 {
+            display: inline-block;
+            margin: 0;
+        }
+
+        header a.logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f05050; /* Red color */
+            color: #fff; /* White text */
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .topic-box {
+            position: relative;
+            width: 400px; /* Two boxes in a row with some margin */
+            height: 300px;
+            background-color: #cdccca; /* Blue color */
+            padding: 25px;
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Added background-color transition */
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .topic-title {
+            font-size: 1.1em;
+            font-weight: lighter;
+            color: #000000; /* White text */
+            transition: color 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .topic-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+            background-color: #696765; /* Darker blue on hover */
+        }
+
+        .topic-box:hover .topic-title {
+            color: #ecf0f1; /* Light grey text on hover */
+        }
+
+        .topic-image {
+            width: 90%;
+            height: 90%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Menu Hub</h1>
+        <a href="/logout" class="logout-button">Logout</a>
+    </header>
+    <section>
+        <a href="{{ url_for('analysis', user_id=user_id) }}" class="topic-box">
+            <img class="topic-image" src="static/image1.jpg" alt="Analysis Image">
+            <div class="topic-title">Analysis and Learning Path</div>
+        </a>
+
+        <a href="chatbot_page.html" class="topic-box">
+            <img class="topic-image" src="static/image6.png" alt="Placement Image">
+            <div class="topic-title">Placement prediction</div>
+        </a>
+
+        <a href="{{ url_for('chat_with_senior') }}" class="topic-box">
+            <img class="topic-image" src="static/image3.jpg" alt="Chat With Senior Image">
+            <div class="topic-title">Chat With Senior</div>
+        </a>
+
+        <a class="topic-box">
+            <img class="topic-image" src="static/image7.png" alt="Sem Mark prediction Image">
+            <div class="topic-title">Sem Mark prediction</div>
+        </a>
+    </section>
+</body>
+
+</html>

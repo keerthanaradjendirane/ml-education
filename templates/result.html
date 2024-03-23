@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-image: url('static/bg1.jpg');
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #0066cc;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+p {
+    color: #990000;
+}
+
+/* Additional Styles */
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    margin-left: 20px;
+}
+
+pre {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Analysis Result</h1>
+    <img src="data:image/png;base64,{{ img_data }}" alt="Pie Chart">
+
+    <h2>Subject Percentages and Bloomers:</h2>
+    <ul>
+        {% for subject, percentage in percentages %}
+            <li>{{ subject }}: {{ percentage }}% - {{ bloomers[subject] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Subject Information based on Bloom Classification:</h2>
+    {% if subject_info_dict %}
+        {% for subject, info in subject_info_dict.items() %}
+            <h3>{{ subject }}:</h3>
+            <pre>{{ info }}</pre>
+        {% endfor %}
+    {% else %}
+        <p>No subject information available for the selected bloom classifications.</p>
+    {% endif %}
+</body>
+</html>

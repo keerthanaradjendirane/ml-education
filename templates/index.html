@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-image: url("static/mark_analysis.jpg") ;
+    margin: 20px;
+}
+
+header {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+section {
+    margin-top: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: calc(100% - 16px);
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#subjectDetails {
+    margin-top: 15px;
+}
+
+/* Optional: Style for the generated subject fields */
+#subjectDetails label {
+    margin-top: 10px;
+}
+
+/* Optional: Style for header and section spacing */
+header, section {
+    margin-bottom: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <section>
+        <form id="studentForm" action="/predict" method="post">
+
+            <h2>Enter Student Marks</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="numSubjects">Number of Subjects:</label>
+            <input type="number" id="numSubjects" name="numSubjects" min="1" required>
+
+            <div id="subjectDetails"></div>
+
+            <button type="button" onclick="generateSubjectFields()">Generate Subject Fields</button>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <script>
+        function generateSubjectFields() {
+            const numSubjects = document.getElementById("numSubjects").value;
+            const subjectDetailsDiv = document.getElementById("subjectDetails");
+
+            subjectDetailsDiv.innerHTML = "";
+
+            for (let i = 1; i <= numSubjects; i++) {
+                const subjectLabel = document.createElement("label");
+                subjectLabel.textContent = `Subject ${i} Name:`;
+                subjectDetailsDiv.appendChild(subjectLabel);
+
+                const subjectInput = document.createElement("input");
+                subjectInput.type = "text";
+                subjectInput.name = `subjectName${i}`;
+                subjectDetailsDiv.appendChild(subjectInput);
+
+                const cat1Label = document.createElement("label");
+                cat1Label.textContent = `Cat-1 Marks for Subject ${i}:`;
+                subjectDetailsDiv.appendChild(cat1Label);
+
+                const cat1Input = document.createElement("input");
+                cat1Input.type = "number";
+                cat1Input.name = `cat1Marks${i}`;
+                subjectDetailsDiv.appendChild(cat1Input);
+
+                const cat2Label = document.createElement("label");
+                cat2Label.textContent = `Cat-2 Marks for Subject ${i}:`;
+                subjectDetailsDiv.appendChild(cat2Label);
+
+                const cat2Input = document.createElement("input");
+                cat2Input.type = "number";
+                cat2Input.name = `cat2Marks${i}`;
+                subjectDetailsDiv.appendChild(cat2Input);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('static/chat.jpg');
+    }
+
+h1 {
+    color: #333;
+    margin-bottom: 50px; /* Adjust the margin to your preference */
+}
+
+form {
+    max-width: 400px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; /* Add margin-top to create space between the h1 and form */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #409645;
+}
+</style>
+</head>
+<body>
+    <h1>Select a skill to catch your seniors on LinkedIn!!!</h1>
+    <form action="/show_names" method="post">
+        <label for="skill">Select a Skill:</label>
+        <select id="skill" name="skill">
+            <option value="frontend">Frontend</option>
+            <option value="machine learning">Machine Learning</option>
+            <option value="deep learning">Deep Learning</option>
+        </select>
+        <button type="submit">Show Names</button>
+    </form>
+</body>
+</html>

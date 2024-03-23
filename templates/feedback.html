@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <style>
+        #message {
+            width: 300px; /* Adjust the width as needed */
+            height: 150px; /* Adjust the height as needed */
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <br>
+        <br>
+        <br>
+        <h1>Feedback Form</h1>
+        <form action="/submit_feedback" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Feedback Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br><br>
+
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </center>
+</body>
+</html>
